@@ -1,0 +1,20 @@
+
+<div class="row">
+    @if (isLoader == true) {
+        <div class="col-12 text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }@else {
+        <div *ngFor="let item of designationList" class="col-3">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">{{item.designation}}</h5>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

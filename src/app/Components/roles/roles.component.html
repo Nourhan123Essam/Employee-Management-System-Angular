@@ -1,0 +1,49 @@
+ <div class="row">
+    <div class="col-12">
+        <table class="table table-bordered">
+            <thead>
+                <th>Sr num</th>
+                <th>Role Name</th>
+            </thead>
+            <tbody>
+                @for (item of roleList; track item; let  i = $index) {    
+                    <tr>
+                        <td>{{i + 1}}</td>
+                        <td>{{item.role}}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div> 
+
+
+
+
+
+
+
+
+<!-- 
+
+ <div class="row">
+    <div class="col-4">
+        <ul>
+            <li *ngFor="let item of roleList">
+                {{item.role}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-4">
+        <select>
+            <option *ngFor="let role of roleList" [value]="role.roleId">
+                {{role.role}}
+             </option>
+        </select>
+    </div>
+    <div class="col-4">
+        <button class="btn btn-warning mx-2" *ngFor="let role of roleList" [value]="role.roleId">
+            {{role.role}}
+        </button>
+    </div>
+</div>  -->
