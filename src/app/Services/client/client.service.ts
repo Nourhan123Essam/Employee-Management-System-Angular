@@ -2,8 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Client } from '../../Model/Class/Client';
-import { APIResponseModel } from '../../Model/Interface/role';
+import { Employee } from '../../Model/Interface/role';
 import { environment } from '../../../environments/environment.development';
+import { ClientProject } from '../../Model/Class/ClientProject';
+import { Constant } from '../../Constant/Constant';
 
 @Injectable({
   providedIn: 'root'
@@ -12,24 +14,42 @@ export class ClientService {
 
   constructor(private http: HttpClient) { }
 
-  getAllClients(): Observable<APIResponseModel>{    
-    return this.http.get<APIResponseModel>(environment.API_URL + "GetAllClients");
+  getAllClients(): Observable<Client[]>{    
+    return this.http.get<Client[]>(environment.API_URL + Constant.API_METHOD.GET_ALL_CLIENT);
   }
 
-  getAllEmployees(): Observable<APIResponseModel>{    
-    return this.http.get<APIResponseModel>(environment.API_URL + "GetAllEmployee");
+  getAllEmployees(): Observable<Employee[]>{    
+    return this.http.get<Employee[]>(environment.API_URL + Constant.API_METHOD.GET_ALL_EMP);
   }
 
-  addUpdate(obj:Client): Observable<APIResponseModel>{
-    return this.http.post<APIResponseModel>(environment.API_URL + "AddUpdateClient", obj);
+  getAllClientProjects(): Observable<ClientProject[]> {
+    return this.http.get<ClientProject[]>(environment.API_URL + `clientProjects`);
   }
-  deleteClientById(id: number): Observable<APIResponseModel>{
-    return this.http.delete<APIResponseModel>(environment.API_URL + "DeleteClientByClientId?clientId=" + id)
-  }
+  //////////////////////////////////////////////
 
-  addUClientProjectpdate(obj:Client): Observable<APIResponseModel>{
-    console.log(environment.API_URL + "AddUpdateClientProject");
-    
-    return this.http.post<APIResponseModel>(environment.API_URL + "AddUpdateClientProject", obj);
+  addUpdate(obj: Partial<Client>): Observable<Client> {
+    debugger;
+    if (!obj.clientId || obj.clientId === 0) {
+      // Adding a new client
+      return this.http.post<Client>(environment.API_URL + "clients", obj);
+    } else {
+      // Updating an existing client
+      return this.http.put<Client>(environment.API_URL + `clients/${obj.clientId}`, obj);
+    }
+  }
+  
+  deleteClientById(id: number): Observable<Client>{
+    return this.http.delete<Client>(environment.API_URL + `clients${id}`);
+  }
+  ///////////////////////////////////////////////
+
+  addUClientProjectpdate(obj:ClientProject): Observable<ClientProject>{
+    if (!obj.clientProjectId || obj.clientProjectId === 0) {
+      // Adding a new client
+      return this.http.post<ClientProject>(environment.API_URL + "clientProjects", obj);
+    } else {
+      // Updating an existing client
+      return this.http.put<ClientProject>(environment.API_URL + `clientProjects/${obj.clientProjectId}`, obj);
+    }
   }
 }

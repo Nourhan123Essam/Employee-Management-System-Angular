@@ -1,8 +1,9 @@
+<app-alert [alertType]="'Success'" [message]="'Hi from Project Page!'"></app-alert>
 <div class="row">
     <div class="col-8">
         <div class="card">
-            <div class="card-header bg-success">
-                Client List
+            <div class="card-header bg-success" style="color: white;">
+                Project List
             </div>
             <div class="card-body">
                 <div class="row">
@@ -10,26 +11,26 @@
                         <table class="table table-bordered">
                             <thead>
                                 <th>Sr No</th>
-                                <th>Company Name</th>
-                                <th>Person Name</th>
-                                <th>Contact Number</th>
-                                <th>City</th>
+                                <th>Project Name</th>
+                                <th>Perject Cost</th>
+                                <th>Lead By</th>
+                                <th>Total Emp Working</th>
                                 <th>Actions</th>
                             </thead>
                             <tbody>
-                               <!-- @for (item of ClientList; track $index) {
+                                @for (item of clientProjectList; track $index) {
                                     <tr>
                                         <td>{{$index + 1}}</td>
-                                        <td>{{item.companyName}}</td>
-                                        <td>{{item.contactPersonName}}</td>
-                                        <td>{{item.contactNo}}</td>
-                                        <td>{{item.city}}</td>
+                                        <td>{{item.projectName}}</td>
+                                        <td>{{item.projectCost}}</td>
+                                        <td>{{item.leadByEmplId}}</td>
+                                        <td>{{item.totalEmpWorking}}</td>
                                         <td>
                                             <button (click)="onEdit(item)" class="btn btn-primary">Edit</button>
                                             <button (click)="onDelete(item.clientId)" class="btn btn-danger">Delete</button>
                                         </td>
                                     </tr>
-                               } -->
+                               } 
                             </tbody>
                         </table>
                     </div>
@@ -42,8 +43,8 @@
 
     <div class="col-4">
         <div class="card">
-            <div class="card-header bg-success">
-                New Client
+            <div class="card-header bg-success" style="color: white;">
+                New Project
             </div>
             <div class="card-body">
                 <form [formGroup]="projectForm">
@@ -52,6 +53,14 @@
                             <label for="">Project Name</label>
                             <input type="text" formControlName="projectName" class="form-control">
                             <div class="text-danger">
+                                @if(projectForm.controls['projectName'].touched){
+                                    @if(projectForm.controls['projectName'].errors?.['required']){
+                                        <span>{{requiredMessage}}</span>
+                                    }
+                                    @if(projectForm.controls['projectName'].errors?.['minlength']){
+                                        <span>min 5 chars required</span>
+                                    }
+                                }
                             </div>
                         </div>
                         <div class="col-6">
@@ -111,7 +120,8 @@
                             <button class="btn btn-secondary">Reset</button>
                         </div>
                         <div class="col-6 text-center">
-                            <button (click)="onSaveProject()" class="btn btn-success">
+                            <button (click)="onSaveProject()" class="btn btn-success"
+                            [disabled]="projectForm.invalid">
                                 Save Project
                             </button>
                         </div>

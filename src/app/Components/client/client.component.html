@@ -1,8 +1,10 @@
+<p>{{clientObj | json}}</p>
+<app-alert [alertType]="'Error'" [message]="'Welcome to Client page!'"></app-alert>
 <div class="row">
     <div class="col-8">
         <div class="card">
-            <div class="card-header bg-success">
-                Client List
+            <div class="card-header bg-primary" style="color: white;">
+                Client List - {{currentData | date: 'dd-MMM-yyyy'}}
             </div>
             <div class="card-body">
                 <div class="row">
@@ -20,7 +22,7 @@
                                @for (item of ClientList; track $index) {
                                     <tr>
                                         <td>{{$index + 1}}</td>
-                                        <td>{{item.companyName}}</td>
+                                        <td>{{item.companyName | uppercase}}</td>
                                         <td>{{item.contactPersonName}}</td>
                                         <td>{{item.contactNo}}</td>
                                         <td>{{item.city}}</td>
@@ -43,7 +45,7 @@
 
     <div class="col-4">
         <div class="card">
-            <div class="card-header bg-success">
+            <div class="card-header bg-primary" style="color: white;">
                 New Client
             </div>
             <div class="card-body">
@@ -106,10 +108,12 @@
                             <button class="btn btn-secondary">Reset</button>
                         </div>
                         <div class="col-6 text-center">
-                            <button (click)="onSaveClient()" class="btn btn-success"
+                            <app-my-button (onBtnClicked)="onSaveClient()" [btnClass]="'btn btn-success'" [btnText]="clientObj.clientId != 0?'Update Client':'Save Client'"></app-my-button>
+
+                            <!-- <button (click)="onSaveClient()" class="btn btn-success"
                                 [disabled]="!form.valid">
-                                {{clientObj.clientId != 0?'Update':'Save'}} Client
-                            </button>
+                                {{clientObj.clientId != 0?'Update Client':'Save Client'}}
+                            </button> -->
                         </div>
                     </div>
 

@@ -8,11 +8,11 @@ export  interface IDesignation{
     designation: string
 }
 
-export interface APIResponseModel{
-    message: string,
-    result: boolean,
-    data: any
-}
+// export interface APIResponseModel{
+//     message: string,
+//     result: boolean,
+//     data: any
+// }
 export interface Employee{
     empName: string,
     empId: string,

@@ -1,0 +1,128 @@
+{
+  "employees": [
+    {
+      "empName": "John Doe",
+      "empId": "E001",
+      "empCode": "EMP001",
+      "empEmailId": "john.doe@example.com",
+      "empDesignation": "Software Engineer",
+      "role": "Developer",
+      "id": "6616"
+    },
+    {
+      "empName": "Jane Smith",
+      "empId": "E002",
+      "empCode": "EMP002",
+      "empEmailId": "jane.smith@example.com",
+      "empDesignation": "Project Manager",
+      "role": "Manager",
+      "id": "8620"
+    }
+  ],
+  "clients": [
+    {
+      "clientId": 1,
+      "contactPersonName": "John Doe",
+      "companyName": "ABC Corp",
+      "address": "123 Main Street",
+      "city": "New York",
+      "pincode": "10001",
+      "state": "NY",
+      "employeeStrength": 50,
+      "gstNo": "GST12345",
+      "contactNo": "1234567890",
+      "regNo": "REG001",
+      "id": "d8d6"
+    },
+    {
+      "clientId": 2,
+      "contactPersonName": "Jane Smith",
+      "companyName": "XYZ Inc",
+      "address": "456 Elm Street",
+      "city": "Los Angeles",
+      "pincode": "90001",
+      "state": "CA",
+      "employeeStrength": 200,
+      "gstNo": "GST67890",
+      "contactNo": "0987654321",
+      "regNo": "REG002",
+      "id": "5f3c"
+    },
+    {
+      "id": "5f2d",
+      "clientId": 0,
+      "contactPersonName": "nourhan",
+      "companyName": "vvvvvvvvv",
+      "address": "ljk",
+      "city": "gd",
+      "pincode": "5412",
+      "state": "sd",
+      "employeeStrength": 0,
+      "gstNo": "564",
+      "contactNo": "0101231",
+      "regNo": "451"
+    },
+    {
+      "id": "5f2d",
+      "clientId": 0,
+      "contactPersonName": "nourhan",
+      "companyName": "kk",
+      "address": "ljk",
+      "city": "gd",
+      "pincode": "5412",
+      "state": "sd",
+      "employeeStrength": 0,
+      "gstNo": "564",
+      "contactNo": "0101231",
+      "regNo": "451"
+    },
+    {
+      "id": "7c6c",
+      "clientId": 0,
+      "contactPersonName": "shams",
+      "companyName": "iiiii",
+      "address": "fsd",
+      "city": "fsd",
+      "pincode": "51",
+      "state": "sfd",
+      "employeeStrength": 0,
+      "gstNo": "5",
+      "contactNo": "845120",
+      "regNo": "451"
+    }
+  ],
+  "clientProjects": [
+    {
+      "clientProjectId": 1,
+      "projectName": "Project A",
+      "startDate": "2024-01-01",
+      "expectedEndDate": "2024-12-31",
+      "leadByEmplId": "E001",
+      "completedDate": "",
+      "contactPerson": "John Doe",
+      "contactPersonContactNo": "1234567890",
+      "totalEmpWorking": "10",
+      "projectCost": "100000",
+      "projectDetails": "Development of new platform",
+      "contactPersonEmailId": "john.doe@abc.com",
+      "clientId": 1,
+      "id": "d567"
+    },
+    {
+      "clientProjectId": 2,
+      "projectName": "Project B",
+      "startDate": "2024-02-01",
+      "expectedEndDate": "2024-11-30",
+      "leadByEmplId": "E002",
+      "completedDate": "",
+      "contactPerson": "Jane Smith",
+      "contactPersonContactNo": "0987654321",
+      "totalEmpWorking": "15",
+      "projectCost": "150000",
+      "projectDetails": "Development of new application",
+      "contactPersonEmailId": "jane.smith@xyz.com",
+      "clientId": 2,
+      "id": "a98c"
+    }
+  ]
+}

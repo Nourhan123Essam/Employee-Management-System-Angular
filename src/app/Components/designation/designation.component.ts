@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { MasterService } from '../../Services/master.service';
-import { APIResponseModel, IDesignation } from '../../Model/Interface/role';
+import { IDesignation } from '../../Model/Interface/role';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -16,7 +16,7 @@ export class DesignationComponent implements OnInit {
   masterService = inject(MasterService);
 
   ngOnInit(): void {
-    this.masterService.getDesignations().subscribe((result:APIResponseModel)=>{
+    this.masterService.getDesignations().subscribe((result:any)=>{
       this.designationList = result.data;
       this.isLoader = false;
     }, error=>{

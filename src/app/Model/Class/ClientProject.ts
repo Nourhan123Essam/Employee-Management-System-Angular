@@ -1,25 +1,31 @@
 export class ClientProject{
-  empName: string
-  empId: number
-  empCode: string
-  empEmailId: string
-  empDesignation: string
-  projectName: string
-  startDate: string
-  expectedEndDate: string
-  clientName: string
-  clientProjectId: number
+  clientProjectId: number;
+  projectName: string;
+  startDate: string;
+  expectedEndDate: string;
+  leadByEmplId: string;
+  completedDate: string;
+  contactPerson: string;
+  contactPersonContactNo: string;
+  totalEmpWorking: string;
+  projectCost: string;
+  projectDetails: string;
+  contactPersonEmailId: string;
+  clientId: number; // This is the foreign key for the client
 
   constructor(){
-    this.empName = '';
-    this.empId = 0;
-    this.empCode = "";
-    this.empEmailId = "";
-    this.empDesignation = "";
+    this.totalEmpWorking = '';
+    this.clientId = 0;
+    this.projectCost = "";
+    this.projectDetails = "";
+    this.contactPersonEmailId = "";
     this.projectName = "";
     this.startDate = "";
     this.expectedEndDate = "";
-    this.clientName = "";
+    this.leadByEmplId = "";
     this.clientProjectId = 0;
+    this.completedDate = "";
+    this.contactPerson = "";
+    this.contactPersonContactNo = "";
   }
 }

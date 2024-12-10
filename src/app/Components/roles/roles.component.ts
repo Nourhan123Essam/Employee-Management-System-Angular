@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MasterComponent } from '../master/master.component';
 import { HttpClient } from '@angular/common/http';
-import { APIResponseModel, IRole } from '../../Model/Interface/role';
+import { IRole } from '../../Model/Interface/role';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -31,7 +31,7 @@ export class RolesComponent implements OnInit {
 
   getAllRoles(){
     //to fetch the data run the project on port 4209 because of CORS erorrs
-    this.http.get<APIResponseModel>('https://freeapi.miniprojectideas.com/api/ClientStrive/GetAllRoles').subscribe((res: APIResponseModel)=>{
+    this.http.get<any>('https://freeapi.miniprojectideas.com/api/ClientStrive/GetAllRoles').subscribe((res: any)=>{
       this.roleList = res.data;
     });
   }
