@@ -1,30 +1,18 @@
 export class Client{
-    clientId: number
-    contactPersonName: string
-    companyName: string
-    address: string
-    city: string
-    pincode: string
-    state: string
-    employeeStrength: number
-    gstNo: string
-    contactNo: string
-    regNo: string
-    
+    clientId: number;
+    name: string;
+    email: string;
+    phone: string;
+    address: string;
+    createdAt: Date;
+  
 
     constructor(){
         this.clientId = 0;
-        this.contactPersonName = '';
-        this.companyName = '';
+        this.name = '';
+        this.email = '';
         this.address = '';
-        this.city = '';
-        this.pincode = '';
-        this.state = '';
-        this.employeeStrength = 0;
-        this.gstNo = '';
-        this.contactNo = '';
-        this.regNo = '';
-
+        this.phone = '';
+        this.createdAt = new Date;  
     }
-
 }

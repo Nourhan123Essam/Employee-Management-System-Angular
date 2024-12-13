@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { IRole } from '../../Model/Interface/role';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RoleService } from '../../Services/role/role.service';
 
 @Component({
   selector: 'app-roles',
@@ -14,25 +15,28 @@ import { FormsModule } from '@angular/forms';
 })
 export class RolesComponent implements OnInit {
   roleList: IRole[] = [];
+  newRole:string = "";
 
-  //http = inject(HttpClient); //different way to declare http rather than in constructor
-  constructor(private http: HttpClient){
-    console.log("Start");
+  constructor(private http: HttpClient, private roleService: RoleService){
     
   }
 
-  ngOnInit(): void {
-    console.log("entered");
-    
-    this.getAllRoles();
-    console.log(this.roleList);
-    
+  onAddRole(){
+    if(this.newRole.length > 0){
+      this.roleService.AddRole(this.newRole).subscribe((res: any)=>{
+        alert(res.message);
+        this.getAllRoles();
+      });
+    }
+  }
+
+  ngOnInit(): void {    
+    this.getAllRoles();    
   }
 
   getAllRoles(){
-    //to fetch the data run the project on port 4209 because of CORS erorrs
-    this.http.get<any>('https://freeapi.miniprojectideas.com/api/ClientStrive/GetAllRoles').subscribe((res: any)=>{
-      this.roleList = res.data;
-    });
+    this.roleService.getAllRoles().subscribe((data: IRole[]) =>{
+      this.roleList = data;
+    })
   }
 }

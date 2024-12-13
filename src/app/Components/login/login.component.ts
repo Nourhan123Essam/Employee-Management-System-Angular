@@ -17,7 +17,7 @@ export class LoginComponent {
 
   onLogin(){
     if(this.loginObj.email == 'admin@gmai.com' && this.loginObj.password == '112233'){
-      this.router.navigateByUrl('/client');
+      this.router.navigateByUrl('/master');
       localStorage.setItem('empErpUser', this.loginObj.email);
     }
     else{

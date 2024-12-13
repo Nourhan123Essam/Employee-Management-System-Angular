@@ -1,19 +1,39 @@
+ <div class="row pb-2 pt-4">
+     <div class="col-4" >
+         <button
+            (click)="onAddRole()" 
+            style="color: whitesmoke; background-color: #657786; border-radius: 5px; width: 100%; padding: 7px;">
+            Add New Role Name
+         </button>
+     </div>
+    <div class="col-8">
+        <input type="text" [(ngModel)]="newRole" style="border-radius: 5px; width: 100%; padding: 7px;">
+    </div>
+ </div>
+ 
  <div class="row">
     <div class="col-12">
-        <table class="table table-bordered">
-            <thead>
-                <th>Sr num</th>
-                <th>Role Name</th>
-            </thead>
-            <tbody>
-                @for (item of roleList; track item; let  i = $index) {    
-                    <tr>
-                        <td>{{i + 1}}</td>
-                        <td>{{item.role}}</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+        <div class="card">
+            <div class="card-header" style="color: whitesmoke; background-color: #657786;">
+                Roles List
+            </div>
+            <div class="card-body table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <th>Sr num</th>
+                        <th>Role Name</th>
+                    </thead>
+                    <tbody>
+                        @for (item of roleList; track item; let  i = $index) {    
+                            <tr>
+                                <td>{{i + 1}}</td>
+                                <td>{{item.name}}</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div> 
 

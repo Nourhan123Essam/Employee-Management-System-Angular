@@ -2,7 +2,6 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Client } from '../../Model/Class/Client';
 import { FormsModule } from '@angular/forms';
 import { ClientService } from '../../Services/client/client.service';
-import { TestService } from '../../Services/test/test.service';
 import { DatePipe, JsonPipe, UpperCasePipe } from '@angular/common';
 import { AlertComponent } from '../../reusableComponents/alert/alert.component';
 import { MyButtonComponent } from "../../reusableComponents/my-button/my-button.component";
@@ -18,7 +17,6 @@ export class ClientComponent implements OnInit {
   clientObj: Client = new Client();
   ClientList: Client[] = [];
   clientService = inject(ClientService);
-  testService = inject(TestService);
 
   ngOnInit(): void {
     this.loadClient();
@@ -62,4 +60,8 @@ export class ClientComponent implements OnInit {
   onEdit(item: Client){
     this.clientObj = item;
   }
+
+  Reset(){
+      this.clientObj = new Client();
+    }
 }

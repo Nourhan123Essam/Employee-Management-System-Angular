@@ -1,8 +1,8 @@
-<app-alert [alertType]="'Success'" [message]="'Hi from Project Page!'"></app-alert>
+<!-- <app-alert [alertType]="'Success'" [message]="'Hi from Project Page!'"></app-alert> -->
 <div class="row">
     <div class="col-8">
         <div class="card">
-            <div class="card-header bg-success" style="color: white;">
+            <div class="card-header py-2" style="color: white; background-color: #6d597a ;">
                 Project List
             </div>
             <div class="card-body">
@@ -13,18 +13,22 @@
                                 <th>Sr No</th>
                                 <th>Project Name</th>
                                 <th>Perject Cost</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
                                 <th>Lead By</th>
-                                <th>Total Emp Working</th>
+                                <th>Client Name</th>
                                 <th>Actions</th>
                             </thead>
                             <tbody>
-                                @for (item of clientProjectList; track $index) {
+                                @for (item of projectList; track $index) {
                                     <tr>
                                         <td>{{$index + 1}}</td>
-                                        <td>{{item.projectName}}</td>
-                                        <td>{{item.projectCost}}</td>
-                                        <td>{{item.leadByEmplId}}</td>
-                                        <td>{{item.totalEmpWorking}}</td>
+                                        <td>{{item.name}}</td>
+                                        <td>{{item.budget}}</td>
+                                        <td>{{item.startDate | date}}</td>
+                                        <td>{{item.endDate |date}}</td>
+                                        <td>{{item.leader}}</td>
+                                        <td>{{item.client}}</td>
                                         <td>
                                             <button (click)="onEdit(item)" class="btn btn-primary">Edit</button>
                                             <button (click)="onDelete(item.clientId)" class="btn btn-danger">Delete</button>
@@ -43,73 +47,52 @@
 
     <div class="col-4">
         <div class="card">
-            <div class="card-header bg-success" style="color: white;">
+            <div class="card-header " style="color: white; background-color: #6d597a ;">
                 New Project
             </div>
             <div class="card-body">
-                <form [formGroup]="projectForm">
+                <form #form = "ngForm">
                     <div class="row">
                         <div class="col-6">
                             <label for="">Project Name</label>
-                            <input type="text" formControlName="projectName" class="form-control">
-                            <div class="text-danger">
-                                @if(projectForm.controls['projectName'].touched){
-                                    @if(projectForm.controls['projectName'].errors?.['required']){
-                                        <span>{{requiredMessage}}</span>
-                                    }
-                                    @if(projectForm.controls['projectName'].errors?.['minlength']){
-                                        <span>min 5 chars required</span>
-                                    }
-                                }
-                            </div>
+                            <input type="text" [(ngModel)]="projectObj.name"  name="name" class="form-control">
+                           
                         </div>
                         <div class="col-6">
                             <label for="">Start Date</label>
-                            <input type="date" formControlName="startDate" class="form-control">
+                            <input type="date" [(ngModel)]="projectObj.startDate" name="startDate" class="form-control">
                         </div>
                         <div class="col-6">
-                            <label for="">Expected End Date</label>
-                            <input type="date" formControlName="expectedEndDate" class="form-control">
+                            <label for="">End Date</label>
+                            <input type="date" [(ngModel)]="projectObj.endDate" name="endDate" class="form-control">
                         </div>
                         <div class="col-6">
-                            <label for="">Contact Name</label>
-                            <input type="text" formControlName="contactPerson" class="form-control">
-                        </div>
-                        <div class="col-6">
-                            <label for="">Contact Mobile</label>
-                            <input type="text" formControlName="contactPersonContactNo" class="form-control">
-                        </div>
-                        <div class="col-6">
-                            <label for="">Contact Email</label>
-                            <input type="email" formControlName="contactPersonEmailId" class="form-control">
-                        </div>
-                        <div class="col-6">
-                            <label for="">Total Employee Count</label>
-                            <input type="text" formControlName="totalEmpWorking" class="form-control">
+                            <label for="">Status</label>
+                            <input type="text" [(ngModel)]="projectObj.status" name="status" class="form-control">
                         </div>
                         <div class="col-6">
                             <label for="">Project Costing</label>
-                            <input type="number" formControlName="projectCost" class="form-control">
+                            <input type="number" [(ngModel)]="projectObj.budget" name="budget" class="form-control">
                         </div>
                         <div class="col-6" style="width: 100%; max-width: 600px; margin: 0 auto;">
                             <label for="">Project Description</label>
-                            <textarea style="width: 100%;" type="text" formControlName="projectDetails" class="form-control" ></textarea>
+                            <textarea style="width: 100%;" type="text" [(ngModel)]="projectObj.description" name="description" class="form-control" ></textarea>
                         </div>
                         <div class="col-6">
                             <label for="">Select Client</label>
-                            <select formControlName="clientId" class="form-control" >
+                            <select name="clientId" [(ngModel)]="projectObj.clientId" class="form-control" >
                                 <option value="">Select Client</option>
                                 @for (item of clientList; track $index) {
-                                    <option [value]="item.clientId">{{item.companyName}}</option>
+                                    <option [value]="item.clientId">{{item.name}}</option>
                                 }
                             </select>
                         </div>
                         <div class="col-6">
                             <label for="">Lead By</label>
-                            <select formControlName="leadByEmplId" class="form-control" >
+                            <select name="leaderId" [(ngModel)]="projectObj.leaderId" class="form-control" >
                                 <option value="">Select Employee</option>
                                 @for (item of employeeList; track $index) {
-                                    <option [value]="item.empId">{{item.empName}} - {{item.empCode}}</option>
+                                    <option [value]="item.employeeId">{{item.name}}</option>
                                 }
                             </select>
                         </div>
@@ -117,11 +100,11 @@
     
                     <div class="row pt-2">
                         <div class="col-6 text-center">
-                            <button class="btn btn-secondary">Reset</button>
+                            <button (click)="Reset()" class="btn btn-secondary">Reset</button>
                         </div>
                         <div class="col-6 text-center">
                             <button (click)="onSaveProject()" class="btn btn-success"
-                            [disabled]="projectForm.invalid">
+                            >
                                 Save Project
                             </button>
                         </div>

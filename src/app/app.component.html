@@ -1,3 +1,7 @@
-<div class="pt-1">
-  <router-outlet></router-outlet>
+<div>
+  @if(isLogging == false){
+    <app-login></app-login>
+  }@else{
+    <router-outlet></router-outlet>
+  }
 </div>

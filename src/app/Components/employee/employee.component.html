@@ -1,1 +1,131 @@
-<p>employee works!</p>
+
+<div class="row py-2" style="display: none;">
+    <app-alert [alertType]="'Error'" [message]="'Welcome to Client page!'"></app-alert>
+</div>
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header py-2" style="color: white;  background-color: #355070 ;">
+                Employee List 
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <th>Sr No</th>
+                                <th>Employee Name</th>
+                                <th>Email</th>
+                                <th>Hire Date</th>
+                                <th>Role</th>
+                                <th>Designation</th>
+                                <th>Actions</th>
+                            </thead>
+                            <tbody>
+                               @for (item of employeeList; track $index) {
+                                    <tr>
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{item.name| uppercase}}</td>
+                                        <td>{{item.email}}</td>
+                                        <td>{{item.hireDate | date}}</td>
+                                        <td>{{item.role}}</td>
+                                        <td>{{item.designation}}</td>
+                                        <td>
+                                            <button (click)="onEdit(item)" class="btn btn-primary">Edit</button>
+                                            <button (click)="onDelete(item.employeeId)" class="btn btn-danger">Delete</button>
+                                        </td>
+                                    </tr>
+                               }
+                            </tbody>
+                        </table>
+                    </div>
+                </div> 
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header" style="color: white;  background-color: #355070 ;">
+                New Employee
+            </div>
+            <div class="card-body">
+                <form #form="ngForm">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Employee Name</label>
+                            <input type="text" #name="ngModel" required minlength="5" name="name" [(ngModel)]="employeeObj.name" class="form-control">
+                            <div class="text-danger">
+                                @if(name.touched){
+                                    @if(name?.errors?.['required']){
+                                        <span>This is Required</span>
+                                    }
+                                    @if(name?.errors?.['minlength']){
+                                        <span>At least 5 chars Required</span>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Address</label>
+                            <input type="text" name="address" [(ngModel)]="employeeObj.address" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Contact Number</label>
+                            <input type="text" name="phone" [(ngModel)]="employeeObj.phone" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Email</label>
+                            <input type="text" name="email" [(ngModel)]="employeeObj.email" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Salary</label>
+                            <input type="number" name="salary" [(ngModel)]="employeeObj.salary" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Hire Date</label>
+                            <input type="date" name="hireDate" [(ngModel)]="employeeObj.hireDate" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Is Active</label>
+                            <select name="isActive" id="" [(ngModel)]="ActiveEmployee" class="form-control">
+                                <option value="false">False</option>
+                                <option value="true">True</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Select Role</label>
+                            <select name="roleId" [(ngModel)]="employeeObj.roleId" class="form-control" >
+                                <option value="">Select Client</option>
+                                @for (item of roleList; track $index) {
+                                    <option [value]="item.roleId">{{item.name}}</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Select Designation</label>
+                            <select name="designationId" [(ngModel)]="employeeObj.designationId" class="form-control" >
+                                <option value="">Select designationId</option>
+                                @for (item of designationList; track $index) {
+                                    <option [value]="item.designationId">{{item.name}}</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="row pt-2">
+                        <div class="col-6 text-center">
+                            <button (click)="Reset()" class="btn btn-secondary">Reset</button>
+                        </div>
+                        <div class="col-6 text-center">
+                            <app-my-button (onBtnClicked)="onSaveEmployee()" [btnClass]="'btn btn-success'" [btnText]="employeeObj.employeeId != ''?'Update Client':'Save Client'"></app-my-button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
