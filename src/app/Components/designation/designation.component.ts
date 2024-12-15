@@ -1,5 +1,4 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { MasterService } from '../../Services/master.service';
 import { IDesignation } from '../../Model/Interface/role';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, UpperCasePipe } from '@angular/common';

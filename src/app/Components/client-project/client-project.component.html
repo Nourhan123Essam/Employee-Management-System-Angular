@@ -1,13 +1,13 @@
 <!-- <app-alert [alertType]="'Success'" [message]="'Hi from Project Page!'"></app-alert> -->
 <div class="row">
-    <div class="col-8">
+    <div class="col-12 col-md-8 col-md-6">
         <div class="card">
             <div class="card-header py-2" style="color: white; background-color: #6d597a ;">
                 Project List
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 table-responsive">
                         <table class="table table-bordered">
                             <thead>
                                 <th>Sr No</th>
@@ -31,7 +31,7 @@
                                         <td>{{item.client}}</td>
                                         <td>
                                             <button (click)="onEdit(item)" class="btn btn-primary">Edit</button>
-                                            <button (click)="onDelete(item.clientId)" class="btn btn-danger">Delete</button>
+                                            <button (click)="onDelete(item.projectId)" class="btn btn-danger">Delete</button>
                                         </td>
                                     </tr>
                                } 
@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-12 col-md-4">
         <div class="card">
             <div class="card-header " style="color: white; background-color: #6d597a ;">
                 New Project

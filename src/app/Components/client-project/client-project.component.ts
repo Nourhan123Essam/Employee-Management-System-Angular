@@ -68,7 +68,7 @@ export class ClientProjectComponent implements OnInit{
 
   onSaveProject(){
     
-    debugger;
+    // debugger;
      if(this.projectObj.projectId == 0){
       this.projectService.addProject(this.projectObj).subscribe((res:any)=>{
         if(res){
@@ -93,7 +93,7 @@ export class ClientProjectComponent implements OnInit{
   }
   onDelete(id:number){
     this.projectService.deleteProject(id).subscribe((res:any)=>{
-      alert(res.message);
+      alert(res.messages);
       this.getAllProject();
     })
   }
