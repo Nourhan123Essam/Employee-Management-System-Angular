@@ -1,59 +1,107 @@
-# EmployeeManagementSystem
+# Employee Management System - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.3.
+## 🚀 Overview
 
-## Development server
+This is the **frontend** for the Employee Management System, built using **Angular**. It provides a responsive and user-friendly interface to interact with the **ASP.NET Core API Backend**. The application ensures secure access, proper routing, and smooth user experience by leveraging modern web development tools and best practices.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🎯 Features
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 🔒 **Authorization and Guards**
+- Guards are implemented to **prevent unauthorized access** to protected pages of the website.  
+- Only authenticated users can access sensitive pages like **employee management, project details, etc.**.
 
-## Code scaffolding
+### 📱 **Responsive Design**
+- The website is fully responsive, ensuring seamless usability across various devices (desktop, tablet, and mobile).
+- **Bootstrap** is used for a modern, clean, and responsive design.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 🔗 **API Integration**
+- Services are used to connect with the backend **ASP.NET Core API**.
+- All API calls for fetching, updating, and deleting data are handled through Angular services, promoting reusable and maintainable code.
 
-```bash
-ng generate component component-name
-```
+### ⚙️ **Routing Configuration**
+- Configured **Angular routes** to enable smooth navigation within the application.
+- Modular and structured routing to support easy scalability.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 📌 **Angular Best Practices**
+- Use of **constants**, **classes**, and **interfaces** to ensure consistent and strongly typed code.
+- Clean and modular folder structure to improve readability and maintainability.
 
-```bash
-ng generate --help
-```
+### 🌍 **Environments**
+- Different environment configurations (`environment.ts` and `environment.prod.ts`) are used for development and production setups.
 
-## Building
+---
 
-To build the project run:
+## 🔗 Related Repositories
 
-```bash
-ng build
-```
+This frontend is built to work with the **backend repository**:  
+- [Employee Management System - Backend](https://github.com/Nourhan123Essam/Employee-Management-System-API-ASP.Net)  
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## 🛠️ Tech Stack
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- **Framework**: Angular  
+- **Styling**: Bootstrap  
+- **Backend API**: ASP.NET Core  
+- **Routing**: Angular Router  
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## 🌟 Live Demo Video
 
-For end-to-end (e2e) testing, run:
+Watch the full **project demonstration video** [here](https://drive.google.com/file/d/1kpFMNj2WzXkkxu-TtTXC4SMM6tIjSFhV/view?usp=sharing).  
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 📂 Project Structure
 
-## Additional Resources
+### Key Modules and Files:
+- **Services**: Handles API calls for CRUD operations (e.g., `employee.service.ts`, `client.service.ts`).  
+- **Guards**: Protect routes (e.g., `auth.guard.ts`).  
+- **Components**: Modular components for each feature (e.g., `employee`, `client`).  
+- **Environment Files**:
+  - `environment.development.ts`: Configuration for the development environment (e.g., API base URL for local development). 
+- **Routing**: Centralized in `app.routes.ts`.
+- **Model Folder**: Contains **interfaces** and **classes** for entities.
+- **Constants**: Stores some constant values.
+- **Reusable-components**: Components that can receive data via **@Input()** and send data via **@Output()**, allowing easy communication between them.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+---
+
+## 💡 How to Run
+
+### Prerequisites
+- **Node.js** and **npm** installed on your system.  
+- **Angular CLI** installed globally.  
+- Clone the **backend repository** and run the backend API as mentioned [here](https://github.com/Nourhan123Essam/Employee-Management-System-API-ASP.Net).
+
+### Steps:
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/Nourhan123Essam/Employee-Management-System-Angular.git
+
+2. Install dependencies:
+  ```bach
+    npm install
+  ```
+3. Update the environment.development.ts file with the API URL of your backend:
+   ```bach
+   export const environment = {
+    API_URL: "https://localhost:7094/api/"
+    };
+4. Run the project:
+   ```bach
+   ng serve --open
+
+## 📬 **Let's Connect**  
+
+- [LinkedIn](https://www.linkedin.com/in/nourhan-essam123/)  
+- [LeetCode](https://leetcode.com/u/norhan123/)  
+- [GitHub](https://github.com/Nourhan123Essam)
+- [Gmail](nourhan.essam.makhlouf@gmail.com)
+
+
+
