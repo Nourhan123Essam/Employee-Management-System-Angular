@@ -68,6 +68,33 @@ Watch the full **project demonstration video** [here](https://drive.google.com/f
 - **Constants**: Stores some constant values.
 - **Reusable-components**: Components that can receive data via **@Input()** and send data via **@Output()**, allowing easy communication between them.
 
+---
+
+## 📸 Screenshots
+
+![ScreenShot](https://github.com/Nourhan123Essam/Employee-Management-System-Angular/blob/main/Demo%20Images%20of%20the%20project/Screenshot%2012.png)
+
+![ScreenShot](https://github.com/Nourhan123Essam/Employee-Management-System-Angular/blob/main/Demo%20Images%20of%20the%20project/Screenshot%201.png)
+
+![ScreenShot](https://github.com/Nourhan123Essam/Employee-Management-System-Angular/blob/main/Demo%20Images%20of%20the%20project/Screenshot%202.png)
+
+![ScreenShot](https://github.com/Nourhan123Essam/Employee-Management-System-Angular/blob/main/Demo%20Images%20of%20the%20project/Screenshot%203.png)
+
+![ScreenShot](https://github.com/Nourhan123Essam/Employee-Management-System-Angular/blob/main/Demo%20Images%20of%20the%20project/Screenshot%204.png)
+
+![ScreenShot](https://github.com/Nourhan123Essam/Employee-Management-System-Angular/blob/main/Demo%20Images%20of%20the%20project/Screenshot%205.png)
+
+![ScreenShot](https://github.com/Nourhan123Essam/Employee-Management-System-Angular/blob/main/Demo%20Images%20of%20the%20project/Screenshot%206.png)
+
+![ScreenShot](https://github.com/Nourhan123Essam/Employee-Management-System-Angular/blob/main/Demo%20Images%20of%20the%20project/Screenshot%207.png)
+
+![ScreenShot](https://github.com/Nourhan123Essam/Employee-Management-System-Angular/blob/main/Demo%20Images%20of%20the%20project/Screenshot%208.png)
+
+![ScreenShot](https://github.com/Nourhan123Essam/Employee-Management-System-Angular/blob/main/Demo%20Images%20of%20the%20project/Screenshot%209.png)
+
+![ScreenShot](https://github.com/Nourhan123Essam/Employee-Management-System-Angular/blob/main/Demo%20Images%20of%20the%20project/Screenshot%2010.png)
+
+![ScreenShot](https://github.com/Nourhan123Essam/Employee-Management-System-Angular/blob/main/Demo%20Images%20of%20the%20project/Screenshot%2011.png)
 
 ---
 
